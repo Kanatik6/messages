@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'jet',
-    
+
     "corsheaders",
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,7 +44,7 @@ INSTALLED_APPS = [
 
     'drf_yasg',
     'rest_framework',
-    
+
     'app',
 ]
 
@@ -128,7 +129,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+# STATIC_ROOT = "/home/kanatik6/messages/static"
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+# MEDIA_URL = '/home/kanatik6/messages/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 STATIC_URL = '/static/'
+# то, что написано тут, должно быть написано внутри location 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
