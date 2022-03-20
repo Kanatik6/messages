@@ -1,5 +1,7 @@
 from rest_framework import serializers
-from app.models import Message,Title,Descriptions
+from app.models import (Message,AboutUs,HomePage, Comments,
+                        OurServices, QuickProjectStart)
+
 
 class MessageSerializer(serializers.ModelSerializer):
     
@@ -8,16 +10,36 @@ class MessageSerializer(serializers.ModelSerializer):
         exclude = []
 
 
-class TitleSerializer(serializers.ModelSerializer):
+class AboutUsSerializer(serializers.ModelSerializer):
     
     class Meta:
-        model = Title
+        model = AboutUs
         exclude = []
 
 
-class DescriptionsSerializer(serializers.ModelSerializer):
+class HomePageSerializer(serializers.ModelSerializer):
     
     class Meta:
-        model = Descriptions
+        model = HomePage
         exclude = []
 
+
+class CommentsSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Comments
+        exclude = []
+
+
+class OurServicesSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = OurServices
+        exclude = []
+
+
+class QuickProjectStartSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = QuickProjectStart
+        exclude = []

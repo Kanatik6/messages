@@ -1,6 +1,10 @@
 from rest_framework.viewsets  import ModelViewSet
-from app.models import Message,Title,Descriptions
-from app.serializers import MessageSerializer,TitleSerializer,DescriptionsSerializer
+from app.models import (Message,AboutUs,HomePage, Comments,
+                        OurServices, QuickProjectStart)
+from app.serializers import (MessageSerializer,OurServicesSerializer,
+                             AboutUsSerializer,CommentsSerializer,
+                             OurServices,HomePageSerializer,
+                             QuickProjectStartSerializer)
 
 
 class MessageViewSet(ModelViewSet):
@@ -8,11 +12,26 @@ class MessageViewSet(ModelViewSet):
     serializer_class = MessageSerializer
 
 
-class TitleViewSet(ModelViewSet):
-    queryset = Title.objects.all()
-    serializer_class = TitleSerializer
+class AboutUsViewSet(ModelViewSet):
+    queryset = AboutUs.objects.all()
+    serializer_class = AboutUsSerializer
 
 
-class DescriptionsViewSet(ModelViewSet):
-    queryset = Descriptions.objects.all()
-    serializer_class = DescriptionsSerializer
+class HomePageViewSet(ModelViewSet):
+    queryset = HomePage.objects.all()
+    serializer_class = HomePageSerializer
+
+
+class CommentsViewSet(ModelViewSet):
+    queryset = Comments.objects.all()
+    serializer_class = CommentsSerializer
+
+
+class OurServicesViewSet(ModelViewSet):
+    queryset = OurServices.objects.all()
+    serializer_class = OurServicesSerializer
+
+
+class QuickProjectStartViewSet(ModelViewSet):
+    queryset = QuickProjectStart.objects.all()
+    serializer_class = QuickProjectStartSerializer

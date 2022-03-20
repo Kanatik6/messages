@@ -137,7 +137,6 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-# то, что написано тут, должно быть написано внутри location 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
