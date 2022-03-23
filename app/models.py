@@ -1,14 +1,13 @@
 from django.db import models
-from app.validators import phone_number_regex
 
 
 class AbstractModel(models.Model):
     title = models.CharField(max_length=255)
-    descriptions = models.CharField(max_length=500)
+    descriptions = models.CharField(max_length=300)
 
     def __str__(self):
         return self.title
-    
+
     class Meta:
         abstract = True
 
@@ -16,7 +15,7 @@ class AbstractModel(models.Model):
 
 class Message(models.Model):
     name = models.CharField(max_length=25)
-    number = models.CharField(max_length=13,validators=[phone_number_regex,])
+    number = models.CharField(max_length=13)
     email = models.EmailField()
     experience = models.IntegerField(default=0)
 
@@ -34,16 +33,33 @@ class AboutUs(models.Model):
 
 
 class HomePage(AbstractModel):
-    pass
+    descriptions = models.CharField(max_length=200)
 
 
-class OurServices(AbstractModel):
-    pass
+class OurServices(models.Model):
+    title = models.CharField(max_length=50)
+    descriptions = models.CharField(max_length=80)
+
+    def __str__(self):
+        return self.title
 
 
-class QuickProjectStart(AbstractModel):
-    pass
+class QuickProjectStart(models.Model):
+    title = models.CharField(max_length=30)
+    descriptions = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.title
+
 
 
 class Comments(AbstractModel):
     pass
+
+
+class Contact(models.Model):
+    title = models.CharField(max_length=25)
+    number = models.IntegerField()
+
+    def __str__(self):
+        return self.title
